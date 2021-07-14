@@ -1,0 +1,26 @@
+.navWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  padding: 1.5rem;
+
+  background-color: #202020;
+}
+
+@media screen and (max-width: 600px) {
+  .navWrapper {
+    padding: 1rem;
+  }
+}
+
+.brandWrapper {
+  font-size: 1.5rem;
+
+  color: white;
+}
+
+.brandWrapper > *:not(:last-child) {
+  margin-right: 0.2rem;
+}
