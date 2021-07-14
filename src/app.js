@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const httpStatus = require("http-status");
 const routers = require("./routers");
+const ApiError = require("./utils/ApiError");
 
 const app = express();
 
