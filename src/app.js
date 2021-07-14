@@ -18,4 +18,9 @@ app.use(express.urlencoded({ extended: true }));
 // *API router
 app.use("/v1", routers);
 
+// *send back a 404 error for any unknown api request
+app.use((req, res, next) => {
+  next(new ApiError(httpStatus.NOT_FOUND, "Not found"));
+});
+
 module.exports = app;
