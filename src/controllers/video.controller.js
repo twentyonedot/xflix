@@ -16,7 +16,8 @@ const getVideos = catchAsync(async (req, res) => {
   const contentRating = req.query.contentRating
     ? req.query.contentRating
     : "All";
-  const genres = req.query.genres ? req.query.genres : ["All"];
+
+  const genres = req.query.genres ? req.query.genres.split(",") : ["All"];
   const sortBy = req.query.sortBy ? req.query.sortBy : "releaseDate";
 
   const videos = await videoService.getVideos(
