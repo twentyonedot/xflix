@@ -27,7 +27,7 @@ const genreFilters = [
 ];
 
 const contentRatingFilters = [
-  { label: "Anyone", value: "All", isSelected: true },
+  { label: "Anyone", value: "Anyone", isSelected: true },
   { label: "7+", value: "7+", isSelected: false },
   { label: "12+", value: "12+", isSelected: false },
   { label: "16+", value: "16+", isSelected: false },

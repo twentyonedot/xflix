@@ -39,7 +39,7 @@ const getVideos = async (title, contentRating, genres, sortBy) => {
 const getPossibleContentRatings = (contentRating) => {
   let contentRatings = [...Values.contentRatings];
 
-  if (contentRating === "All") {
+  if (contentRating === "Anyone") {
     return contentRatings;
   }
 

@@ -42,7 +42,7 @@ export default function Home() {
       .filter((genre) => genre.isSelected)
       .map((genre) => genre.value);
     if (selectedGenreFilters.length > 0) {
-      paramsArray.push(`genre=${selectedGenreFilters.join(",")}`);
+      paramsArray.push(`genres=${selectedGenreFilters.join(",")}`);
     }
 
     const selectedSortByFilters = sortByFilters
