@@ -21,9 +21,9 @@ const getVideos = async (title, contentRating, genres, sortBy) => {
   const contentRatingMatch = { contentRating: { $in: contentRatings } };
 
   let genreMatch = { genre: { $in: genres } };
-  if (genres.includes("All")) {
+  /*  if (genres.includes("All")) {
     genreMatch = null;
-  }
+  } */
 
   const videos = await Video.find({
     ...titleMatch,
