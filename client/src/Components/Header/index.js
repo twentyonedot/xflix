@@ -39,7 +39,7 @@ export default function Header() {
       <div className={`${Styles.brandWrapper} order-1`}>
         <img className="w-20 text-white p-0 m-0" src={logo} alt="logo" />
       </div>
-      <div className="searchWrapper md:w-1/4 md:mx-0 order-3 md:order-2 w-full mx-auto my-6 md:my-0">
+      <div className="searchWrapper md:w-1/4 md:mx-0 order-3 md:order-2 w-full mx-auto mt-6 md:my-0">
         <div
           className={`flex justify-end`}
           style={{ border: "2px solid #606060", borderRadius: ".375rem" }}

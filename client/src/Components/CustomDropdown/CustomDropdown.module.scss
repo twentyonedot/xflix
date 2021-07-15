@@ -1,0 +1,68 @@
+.ddWrapper {
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+
+  margin: 0 1rem;
+}
+
+.ddHeader {
+  background: #121212;
+  color: #fff;
+
+  padding: 0.5rem 1rem;
+
+  border-radius: 1rem;
+
+  border: 1px solid #606060;
+  cursor: pointer;
+
+  font-size: 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  user-select: none;
+}
+
+.ddList {
+  position: absolute;
+  bottom: -100px;
+
+  width: 100%;
+
+  border-radius: 0.3rem;
+
+  background: #2e2e2e;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 0.5rem 0;
+}
+
+.ddListItem {
+  background: none;
+  color: white;
+
+  border: none;
+
+  cursor: pointer;
+  user-select: none;
+
+  font-size: 1rem;
+
+  padding: 0.5rem;
+}
+
+.ddListItem:hover {
+  background: #474747;
+}

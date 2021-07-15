@@ -1,18 +1,24 @@
 import React from "react";
+import Dropdown from "../CustomDropdown";
 
 export default function FiltersPanel(props) {
+  const selectedGenres = props.genres.filter((genre) => genre.isSelected);
+  const selectedContentRatings = props.contentRatings.filter(
+    (cr) => cr.isSelected
+  );
+  console.log("selectedGenres", selectedGenres);
   return (
-    <section>
-      <div className="filters">
-        <div>
+    <section className="bg-[#202020] pb-4">
+      <div className="filters flex justify-center items-center text-white p-2 flex-wrap">
+        <div className="flex justify-center flex-wrap items-center my-2">
           {props.genres.map((genre) => (
             <div
-              onClick={props.handleGenreChange(genre)}
+              onClick={() => props.onGenreChange(genre)}
               className={`${
-                props.selectedGenres.includes(genre.value)
-                  ? "bg-[rgba(255, 255, 255, 0.87)] text-[#000]"
-                  : "text-[rgba(255, 255, 255, 0.87)]"
-              } cursor-pointer rounded-xl`}
+                genre.isSelected
+                  ? "bg-[#fff] text-[#000] px-4 py-2 m-2"
+                  : "text-[#fff] m-4"
+              } cursor-pointer rounded-2xl`}
               key={genre.value}
               id={genre.value}
             >
@@ -20,9 +26,30 @@ export default function FiltersPanel(props) {
             </div>
           ))}
         </div>
-        <div></div>
+        <div>
+          <Dropdown
+            dropdownOptions={props.sortBy}
+            onSortByChange={props.onSortByChange}
+          />
+        </div>
       </div>
-      <div className="filters"></div>
+
+      <div className="filters flex justify-center flex-wrap items-center my-2">
+        {props.contentRatings.map((cr) => (
+          <div
+            onClick={() => props.onContentRatingChange(cr)}
+            className={`${
+              cr.isSelected
+                ? "bg-[#fff] text-[#000] px-4 py-2 m-2"
+                : "text-[#fff] m-4"
+            } cursor-pointer rounded-2xl`}
+            key={cr.value}
+            id={cr.value}
+          >
+            {cr.label}
+          </div>
+        ))}
+      </div>
     </section>
   );
 }

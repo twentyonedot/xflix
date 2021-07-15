@@ -1,7 +1,7 @@
 const genreFilters = [
   {
     label: "All genre",
-    value: "all",
+    value: "All",
     isSelected: true,
   },
   {
@@ -27,14 +27,28 @@ const genreFilters = [
 ];
 
 const contentRatingFilters = [
-  { label: "Anyone", value: "Anyone", isSelected: false },
+  { label: "Anyone", value: "All", isSelected: true },
   { label: "7+", value: "7+", isSelected: false },
   { label: "12+", value: "12+", isSelected: false },
   { label: "16+", value: "16+", isSelected: false },
   { label: "18+", value: "18+", isSelected: false },
 ];
 
-module.exports.filters = {
+const sortByFilters = [
+  {
+    label: "Release Date",
+    value: "releaseDate",
+    isSelected: true,
+  },
+  {
+    label: "View Count",
+    value: "viewCount",
+    isSelected: false,
+  },
+];
+
+module.exports = {
   genreFilters,
   contentRatingFilters,
+  sortByFilters,
 };
