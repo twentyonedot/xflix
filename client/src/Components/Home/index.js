@@ -17,7 +17,7 @@ export default function Home() {
   );
   const [videoList, setVideoList] = useState([]);
   const [searchText, setSearchText] = useState("");
-
+  const [uploadFormVisibility, setUploadFormVisibility] = useState(false);
   const performApiCall = async (params) => {
     let response;
     try {
@@ -139,12 +139,30 @@ export default function Home() {
     getVideos();
   };
 
+  const handleCancel = () => {
+    setUploadFormVisibility(false);
+  };
+
+  const handleSearchInput = (evt) => {
+    setSearchText(evt.target.value);
+  };
+
+  const handleUploadButton = () => {
+    setUploadFormVisibility(true);
+  };
+
   return (
     <div>
       <Header
+        handleSearchInput={handleSearchInput}
+        searchText={searchText}
+        handleUploadButton={handleUploadButton}
         isSearchVisible={true}
         isUploadVisible={true}
+        isUploadFormVisible={uploadFormVisibility}
+        handleCancel={handleCancel}
         refresh={getVideos}
+        genres={genreFilters}
       />
 
       <FiltersPanel

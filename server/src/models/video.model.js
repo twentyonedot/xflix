@@ -18,9 +18,10 @@ const videoSchema = mongoose.Schema({
     trim: true,
     unique: true,
   },
-  contentRatings: {
+  contentRating: {
     type: String,
     trim: true,
+    required: true,
     validate(value) {
       if (!contentRatings.includes(value)) {
         throw new Error("Invalid Content Rating");
