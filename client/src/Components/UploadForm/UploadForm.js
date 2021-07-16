@@ -105,7 +105,7 @@ export default class UploadForm extends React.Component {
           errorMessages={["This field is required", "Invalid Url"]}
           variant="outlined"
           value={formData.videoLink}
-          className="form-element w-full"
+          className={`${Styles.formElement} w-full`}
           id="upload-btn-video"
         />
         <br />
@@ -118,7 +118,7 @@ export default class UploadForm extends React.Component {
           errorMessages={["This field is required", "Invalid Url"]}
           variant="outlined"
           value={formData.previewImage}
-          className="form-element w-full"
+          className={`${Styles.formElement} w-full`}
           id="upload-btn-image"
         />
         <br />
@@ -131,7 +131,7 @@ export default class UploadForm extends React.Component {
           errorMessages={["This field is required"]}
           value={formData.title}
           variant="outlined"
-          className="form-element w-full"
+          className={`${Styles.formElement} w-full`}
           id="upload-btn-title"
         />
         <br />
@@ -142,7 +142,7 @@ export default class UploadForm extends React.Component {
           helperText="Please select genre"
           name="genre"
           variant="outlined"
-          className="select-input form-element w-full"
+          className={`${Styles.formElement} w-full select-input`}
           validators={["required"]}
           errorMessages={["This field is required"]}
           id="upload-btn-genre"
@@ -163,7 +163,7 @@ export default class UploadForm extends React.Component {
           helperText="Please select Content Rating"
           name="contentRating"
           variant="outlined"
-          className="select-input form-element w-full"
+          className={`${Styles.formElement} w-full select-input`}
           validators={["required"]}
           errorMessages={["This field is required"]}
           id="upload-btn-content-rating"
@@ -182,7 +182,7 @@ export default class UploadForm extends React.Component {
           label="Release Date"
           name="releaseDate"
           type="date"
-          className={`form-element w-full`}
+          className={`${Styles.formElement} w-full`}
           style={{ paddingBottom: "1rem" }}
           InputLabelProps={{
             shrink: true,

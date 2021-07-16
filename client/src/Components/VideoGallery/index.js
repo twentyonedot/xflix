@@ -34,7 +34,7 @@ export default function VideoGallery(props) {
                     className="rounded-md"
                   />
                 </div>
-                <div className="text-white font-semibold mt-4">
+                <div className="text-white font-semibold mt-4 whitespace-nowrap	 overflow-hidden overflow-ellipsis">
                   {item.title}
                 </div>
                 <div className="text-white">

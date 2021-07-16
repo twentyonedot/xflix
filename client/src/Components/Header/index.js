@@ -58,10 +58,15 @@ export default function Header(props) {
         onClose={props.handleCancel}
         aria-labelledby="simple-dialog-title"
         open={props.isUploadFormVisible}
+        /* PaperProps={{
+          style: {
+            backgroundColor: "#121212",
+          },
+        }} */
       >
         <Grid container className="dialog px-6 pb-6 pt-4">
           <Grid item xs={12} className="flex justify-between items-center pb-4">
-            <h3 className="form-header font-semibold">Upload Video</h3>
+            <h3 className="form-header font-semibold ">Upload Video</h3>
             <IconButton
               aria-label="close"
               className={"close-button"}
