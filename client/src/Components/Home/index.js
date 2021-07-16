@@ -51,11 +51,10 @@ export default function Home() {
     if (selectedSortByFilters.length > 0) {
       paramsArray.push(`sortBy=${selectedSortByFilters.join(",")}`);
     }
-    console.log("SelectedSortByFilters", selectedSortByFilters);
 
     const SelectedContentRatingFilters = contentRatingFilters
       .filter((cr) => cr.isSelected)
-      .map((cr) => cr.value);
+      .map((cr) => encodeURIComponent(cr.value));
     if (SelectedContentRatingFilters.length > 0) {
       paramsArray.push(
         `contentRating=${SelectedContentRatingFilters.join(",")}`
@@ -63,7 +62,9 @@ export default function Home() {
     }
 
     const params = paramsArray.join("&");
+    setLoading(true);
     const response = await performApiCall(params);
+    setLoading(false);
     if (response) {
       setVideoList(response.videos);
       saveVideosLocally();
@@ -95,7 +96,15 @@ export default function Home() {
         return genre;
       });
     }
-
+    if (!genres.find((genre) => genre.isSelected)) {
+      genres.every((genre) => {
+        if (genre.value === "All") {
+          genre.isSelected = true;
+          return false;
+        }
+        return true;
+      });
+    }
     setGenresFilters(genres);
     getVideos();
   };
@@ -103,7 +112,7 @@ export default function Home() {
   const onContentRatingChangeHandler = async (item) => {
     const contentRatings = contentRatingFilters.map((contentRating) => {
       if (contentRating.value === item.value) {
-        contentRating.isSelected = true;
+        contentRating.isSelected = !contentRating.isSelected;
       } else {
         contentRating.isSelected = false;
       }
@@ -132,7 +141,11 @@ export default function Home() {
 
   return (
     <div>
-      <Header />
+      <Header
+        isSearchVisible={true}
+        isUploadVisible={true}
+        refresh={getVideos}
+      />
 
       <FiltersPanel
         genres={genreFilters}
@@ -143,7 +156,7 @@ export default function Home() {
         onSortByChange={onSortByChangeHandler}
       />
 
-      <VideoGallery videos={videoList} />
+      <VideoGallery videos={videoList} loading={loading} />
     </div>
   );
 }

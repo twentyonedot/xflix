@@ -21,9 +21,9 @@ const getVideos = async (title, contentRating, genres, sortBy) => {
   const contentRatingMatch = { contentRating: { $in: contentRatings } };
 
   let genreMatch = { genre: { $in: genres } };
-  /*  if (genres.includes("All")) {
+  if (genres.includes("All")) {
     genreMatch = null;
-  } */
+  }
 
   const videos = await Video.find({
     ...titleMatch,
@@ -39,7 +39,7 @@ const getVideos = async (title, contentRating, genres, sortBy) => {
 const getPossibleContentRatings = (contentRating) => {
   let contentRatings = [...Values.contentRatings];
 
-  if (contentRating === "Anyone") {
+  if (contentRating === "All") {
     return contentRatings;
   }
 
@@ -93,10 +93,7 @@ const changeViews = async (id) => {
   const video = await findVideoById(id);
 
   video.viewCount += 1;
-
   await video.save();
-
-  return;
 };
 
 const changeVotes = async (id, voteType, changeType) => {
@@ -123,8 +120,8 @@ const changeVotes = async (id, voteType, changeType) => {
 
   video.votes[changeVoteType] = newVotes;
 
+  console.log(video);
   await video.save();
-
   return;
 };
 

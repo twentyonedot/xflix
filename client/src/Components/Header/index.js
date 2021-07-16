@@ -1,7 +1,7 @@
 import React from "react";
 import Styles from "./Header.module.scss";
 import logo from "../../assets/logo.png";
-
+import { Link } from "react-router-dom";
 import UploadModal from "../UploadModal";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -36,9 +36,11 @@ export default function Header() {
 
   return (
     <nav className={`${Styles.navWrapper}`}>
-      <div className={`${Styles.brandWrapper} order-1`}>
-        <img className="w-20 text-white p-0 m-0" src={logo} alt="logo" />
-      </div>
+      <Link to="/">
+        <div className={`${Styles.brandWrapper} order-1`}>
+          <img className="w-20 text-white p-0 m-0" src={logo} alt="logo" />
+        </div>
+      </Link>
       <div className="searchWrapper md:w-1/4 md:mx-0 order-3 md:order-2 w-full mx-auto mt-6 md:my-0">
         <div
           className={`flex justify-end`}

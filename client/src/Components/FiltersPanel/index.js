@@ -2,11 +2,6 @@ import React from "react";
 import Dropdown from "../CustomDropdown";
 
 export default function FiltersPanel(props) {
-  const selectedGenres = props.genres.filter((genre) => genre.isSelected);
-  const selectedContentRatings = props.contentRatings.filter(
-    (cr) => cr.isSelected
-  );
-  console.log("selectedGenres", selectedGenres);
   return (
     <section className="bg-[#202020] pb-4">
       <div className="filters flex justify-center items-center text-white p-2 flex-wrap">

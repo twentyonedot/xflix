@@ -20,7 +20,6 @@ const videoSchema = mongoose.Schema({
   },
   contentRatings: {
     type: String,
-    required: true,
     trim: true,
     validate(value) {
       if (!contentRatings.includes(value)) {

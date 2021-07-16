@@ -23,7 +23,7 @@ const searchVideos = {
     genres: Joi.stringArray().items(
       Joi.string().valid(...Values.genres, "All")
     ),
-    contentRating: Joi.string().valid(...Values.contentRatings, "All"),
+    contentRating: Joi.string().valid(...Values.contentRatings, "Anyone"),
     sortBy: Joi.string().valid(...Values.sortBy),
   }),
 };
