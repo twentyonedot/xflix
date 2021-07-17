@@ -16,7 +16,7 @@ export default function Home() {
     filters.contentRatingFilters
   );
   const [videoList, setVideoList] = useState([]);
-  const [searchText, setSearchText] = useState("");
+
   const [uploadFormVisibility, setUploadFormVisibility] = useState(false);
   const performApiCall = async (params) => {
     let response;
@@ -31,11 +31,12 @@ export default function Home() {
     return response;
   };
 
-  const getVideos = async () => {
+  const getVideos = async (args) => {
+    const searchKeyword = args?.target.value;
     const paramsArray = [];
 
-    if (searchText.length > 0) {
-      paramsArray.push(`title=${searchText}`);
+    if (searchKeyword?.length > 0) {
+      paramsArray.push(`title=${searchKeyword}`);
     }
 
     const selectedGenreFilters = genreFilters
@@ -143,19 +144,28 @@ export default function Home() {
     setUploadFormVisibility(false);
   };
 
-  const handleSearchInput = (evt) => {
-    setSearchText(evt.target.value);
-  };
-
   const handleUploadButton = () => {
     setUploadFormVisibility(true);
   };
 
+  const debounce = function (fn, d) {
+    let timerId;
+    return function () {
+      const context = this,
+        args = arguments;
+      clearTimeout(timerId);
+      timerId = setTimeout(function () {
+        fn.apply(context, args);
+      }, d);
+    };
+  };
+
+  const debounceSearch = debounce(getVideos, 300);
+
   return (
     <div>
       <Header
-        handleSearchInput={handleSearchInput}
-        searchText={searchText}
+        handleSearchInput={debounceSearch}
         handleUploadButton={handleUploadButton}
         isSearchVisible={true}
         isUploadVisible={true}

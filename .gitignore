@@ -4,7 +4,7 @@
 node_modules
 .pnp
 .pnp.js
-
+build
 # testing
 /coverage
 
@@ -27,3 +27,6 @@ data.json
 setupRemoteMongo.sh
 package-lock.json
 .env
+
+# Local Netlify folder
+.netlify

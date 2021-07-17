@@ -104,6 +104,7 @@ export default function Header(props) {
                   input: classes.inputInput,
                 }}
                 inputProps={{ "aria-label": "search" }}
+                onKeyUp={props.handleSearchInput}
               />
               <div className="flex justify-center items-center bg-[#313131] px-2 rounded-r-md cursor-pointer">
                 <div className="px-2 ">
